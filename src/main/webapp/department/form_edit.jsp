@@ -4,7 +4,7 @@
 <%@page import="com.example.webapphr1_2023.Beans.Location" %>
 <%@page import="com.example.webapphr1_2023.Beans.Department" %>
 <jsp:useBean id="listaJefes" type="ArrayList<Employee>" scope="request" />
-<jsp:useBean id="listaLocations" type="ArrayList<Location>" scope="request" />
+<jsp:useBean id="listaLocaciones" type="ArrayList<Location>" scope="request" />
 <jsp:useBean id="departamento" type="Department" scope="request"/>
 <!DOCTYPE html>
 <html>
@@ -38,7 +38,7 @@
                 <label for="location_id">Dep Location</label>
                 <select name="location_id" class="form-select">
                     <option value="0">-- Sin locación --</option>
-                    <% for(Location location: listaLocations){ %>
+                    <% for(Location location: listaLocaciones){ %>
                     <option value="<%=location.getLocationId()%>" <%=location.getLocationId() == departamento.getLocation().getLocationId()?"selected":""%>   > <%=location.getStreetAdd()%> </option>
                     <% } %>
                 </select>
