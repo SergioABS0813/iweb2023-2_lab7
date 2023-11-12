@@ -2,8 +2,6 @@ package com.example.webapphr1_2023.Beans;
 
 public class Location {
     private int locationId;
-
-    private String locationName;
     private String streetAdd;
     private String postalCode;
     private String city;
@@ -19,13 +17,6 @@ public class Location {
         this.locationId = locationId;
     }
 
-
-    public String getLocationName() {
-        return locationName;
-    }
-
-    public void setLocationName(String locationName) {
-        this.locationName = locationName;
 
     public String getStreetAdd() {
         return streetAdd;

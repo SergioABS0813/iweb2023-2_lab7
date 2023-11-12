@@ -63,7 +63,6 @@ public class LocationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        super.doPost(request, response);
         response.setContentType("text/html");
 
         String action = request.getParameter("action") == null?"crear":request.getParameter("action");

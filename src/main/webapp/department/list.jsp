@@ -41,7 +41,7 @@
             </td>
             <td><%= dep.getManager() == null ? "-- Sin jefe --" : dep.getManager().getFullName() %>
             </td>
-            <td><%=dep.getLocation().getLocationId() == 0 ? "-- Sin locación -- ": dep.getLocation().getLocationName()%>
+            <td><%=dep.getLocation().getLocationId() == 0 ? "-- Sin locación -- ": dep.getLocation().getStreetAdd()%>
             </td>
             <td>
                 <a class="btn btn-primary"

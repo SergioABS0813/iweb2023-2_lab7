@@ -35,6 +35,32 @@ public class DepartmentDao extends DaoBase {
         return list;
     }
 
+    public Department obtenerDep(int departmentId) {
+
+        Department department = null;
+
+        String sql = "SELECT * FROM departments d\n" +
+                "left join employees m on d.manager_id = m.employee_id \n" +
+                "left join locations l on d.location_id = l.location_id\n" +
+                "where d.department_id = ?";
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, departmentId);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+
+                if (rs.next()) {
+                    department = fetchDepartmentData(rs);
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return department;
+    }
     public void guardarDep(Department department){
 
         String sql = "INSERT INTO departments (department_name, manager_id,location_id)"
@@ -52,7 +78,7 @@ public class DepartmentDao extends DaoBase {
         }
     }
 
-    /*public void actualizarDep(Department department) {
+    public void actualizarDep(Department department) {
 
         String sql = "UPDATE departments "
                 + "SET department_name = ?, "
@@ -64,14 +90,25 @@ public class DepartmentDao extends DaoBase {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             setDepartmentData(department, pstmt);
-            pstmt.setInt(11, department.getDepartmentId());
+            pstmt.setInt(4, department.getDepartmentId());
 
             pstmt.executeUpdate();
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-    }*/
+    }
+    public void borrarDep(int departmentId) {
+
+        try (Connection conn = getConnection();
+             PreparedStatement pstmt = conn.prepareStatement("DELETE FROM employees WHERE employee_id = ?")) {
+            pstmt.setInt(1, departmentId);
+            pstmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     private Department fetchDepartmentData(ResultSet rs) throws SQLException {
         Department department = new Department();
@@ -90,7 +127,7 @@ public class DepartmentDao extends DaoBase {
 
         Location location = new Location();
         location.setLocationId(rs.getInt("d.location_id"));
-        location.setLocationName(rs.getString("street_address"));
+        location.setStreetAdd(rs.getString("street_address"));
         department.setLocation(location);
 
         return department;
