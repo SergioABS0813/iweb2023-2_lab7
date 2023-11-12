@@ -19,7 +19,7 @@
                     <li class="breadcrumb-item active">Trabajos</li>
                 </ol>
             </nav>
-            <a class="btn btn-primary mb-3" href="<%=request.getContextPath()%>/JobServlet?action=formCrear">Crear
+            <a class="btn btn-primary mb-3" href="<%=request.getContextPath()%>/LocationServlet?action=formCrear">Crear
                 Trabajo</a>
             <table class="table">
                 <tr>

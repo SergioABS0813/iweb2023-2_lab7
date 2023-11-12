@@ -19,7 +19,7 @@
             <li class="breadcrumb-item active">Locations</li>
         </ol>
     </nav>
-    <a class="btn btn-primary mb-3" href="<%=request.getContextPath()%>/LocationServlet?action=formCrear">Crear
+    <a class="btn btn-primary mb-3" href="<%=request.getContextPath()%>/LocationServlet?action=new">Crear
         Location</a>
     <table class="table">
         <tr>
@@ -38,15 +38,15 @@
         <tr>
             <td><%=loc.getLocationId()%>
             </td>
-            <td><%=loc.getLocationId()%>
+            <td><%=loc.getStreetAdd()%>
             </td>
-            <td><%=loc.getLocationId()%>
+            <td><%=loc.getPostalCode()%>
             </td>
-            <td><%=loc.getLocationId()%>
+            <td><%=loc.getCity()%>
             </td>
-            <td><%=loc.getLocationId()%>
+            <td><%=loc.getStateProvince()%>
             </td>
-            <td><%=loc.getLocationId()%>
+            <td><%=loc.getCountry().getCountryName()%>
             </td>
             <td>
                 <a class="btn btn-primary"

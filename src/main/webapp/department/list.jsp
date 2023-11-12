@@ -19,7 +19,7 @@
             <li class="breadcrumb-item active">Departments</li>
         </ol>
     </nav>
-    <a class="btn btn-primary mb-3" href="<%=request.getContextPath()%>/JobServlet?action=formCrear">Crear
+    <a class="btn btn-primary mb-3" href="<%=request.getContextPath()%>/LocationServlet?action=formCrear">Crear
         Department</a>
     <table class="table">
         <tr>
