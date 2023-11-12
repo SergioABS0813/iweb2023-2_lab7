@@ -1,5 +1,6 @@
 package com.example.webapphr1_2023.Controllers;
 
+import com.example.webapphr1_2023.Beans.Country;
 import com.example.webapphr1_2023.Beans.Location;
 import com.example.webapphr1_2023.Daos.LocationDao;
 import jakarta.servlet.RequestDispatcher;
@@ -10,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 @WebServlet(name = "LocationServlet", urlPatterns = {"/LocationServlet"})
@@ -42,18 +44,28 @@ public class LocationServlet extends HttpServlet {
 
                 if (location != null){
                     request.setAttribute("location", location); // enviamos el job a la vista
-                    request.getRequestDispatcher("job/editarLocation.jsp").forward(request,response);
-                    //MEJORARRRRRRRRRRRRRRR LOCATION DEBE MANDARSEEE
-
+                    request.getRequestDispatcher("location/editLocation.jsp").forward(request,response);
 
                 }else{
-                    response.sendRedirect( request.getContextPath() + "/JobServlet");
+                    response.sendRedirect( request.getContextPath() + "/LocationServlet");
                 }
                 break;
 
             case "borrar":
 
+                String idRecB = request.getParameter("id"); // recibimos el ID enviado desde el botón
+                Location LocationD = locationDao.buscarPorId(Integer.parseInt(idRecB));
 
+                if(LocationD != null){
+                    try{
+                        locationDao.borrar(Integer.parseInt(idRecB));
+                    }catch (SQLException e){
+                        System.out.println("Log: exception: " + e.getMessage());
+                    }
+                    response.sendRedirect( request.getContextPath() + "/LocationServlet"); //lo redirecciono a la página misma
+                }else{
+                    response.sendRedirect( request.getContextPath() + "/LocationServlet"); //lo redirecciono a la página misma
+                }
                 break;
 
         }
@@ -83,10 +95,20 @@ public class LocationServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/LocationServlet");
                 break;
 
-            case "a":
+            case "editar":
 
-                break;
-            case "e":
+                String locationIdEd = request.getParameter("locationId");
+                String streetAddEd = request.getParameter("streetAdd");
+                String postalCodeEd = request.getParameter("postalCode");
+                String cityEd = request.getParameter("city");
+                String stateProvinceEd = request.getParameter("stateProvince");
+                String countryIdEd = request.getParameter("countryId");
+
+                locationDao.actualizar(Integer.parseInt(locationIdEd), streetAddEd, postalCodeEd, cityEd, stateProvinceEd, countryIdEd);
+
+
+                response.sendRedirect(request.getContextPath() + "/LocationServlet");
+
                 break;
 
         }
