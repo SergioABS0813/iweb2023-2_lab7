@@ -92,7 +92,7 @@ public class LocationServlet extends HttpServlet {
 
                 // Creamos el LOCATION
                 locationDao.crearLocation(Integer.parseInt(locationId),streetAdd,postalCode,city,stateProvince,countryId); //Realizamos los cambios
-                response.sendRedirect(request.getContextPath() + "/LocationServlet"); // Sí hay cambios en la base de datos, solo que el redireccionamiento por alguna razón no funciona
+                response.sendRedirect(request.getContextPath() + "/LocationServlet");
                 break;
 
             case "editar":
@@ -106,7 +106,7 @@ public class LocationServlet extends HttpServlet {
 
                 locationDao.actualizar(Integer.parseInt(locationIdEd), streetAddEd, postalCodeEd, cityEd, stateProvinceEd, countryIdEd);
 
-                // Redireccionar: No funciona el redireccionamiento correctamente, pero si el funcionamiento de actualizar en base de datos y posteriormente refrescado el list sí hay cambios
+
                 response.sendRedirect(request.getContextPath() + "/LocationServlet");
 
                 break;
