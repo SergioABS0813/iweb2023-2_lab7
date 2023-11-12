@@ -1,8 +1,9 @@
 <%@page import="java.util.ArrayList" %>
 <%@page import="com.example.webapphr1_2023.Beans.Employee" %>
 <%@page import="com.example.webapphr1_2023.Beans.Location" %>
+<%@page import="com.example.webapphr1_2023.Beans.Department" %>
 <jsp:useBean id="listaJefes" type="ArrayList<Employee>" scope="request" />
-<jsp:useBean id="obtenerListaLocations" type="ArrayList<Location>" scope="request" />
+<jsp:useBean id="listaLocations" type="ArrayList<Location>" scope="request" />
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -35,7 +36,7 @@
                 <label for="location_id">Dep Location</label>
                 <select name="location_id" class="form-select">
                     <option value="0">-- Sin locación --</option>
-                    <% for(Location location: obtenerListaLocations){ %>
+                    <% for(Location location: listaLocations){ %>
                     <option value="<%=location.getLocationId()%>"> <%=location.getStreetAdd()%> </option>
                     <% } %>
                 </select>

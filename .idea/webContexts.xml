@@ -3,13 +3,7 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
-<<<<<<< HEAD
-        <entry key="file://$PROJECT_DIR$/src/main/webapp/department/form_new.jsp" value="file://$PROJECT_DIR$/src/main/webapp/department" />
-        <entry key="file://$PROJECT_DIR$/src/main/webapp/department/list.jsp" value="file://$PROJECT_DIR$/src/main/webapp/department" />
-=======
-        <entry key="file://$PROJECT_DIR$/src/main/webapp/location/list.jsp" value="file://$PROJECT_DIR$/src/main/webapp/location" />
-        <entry key="file://$PROJECT_DIR$/src/main/webapp/location/nuevoLocation.jsp" value="file://$PROJECT_DIR$/src/main/webapp/location" />
->>>>>>> c14fcdee77b87f66ebd9a6ca58698a95f670eafc
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/department/form_edit.jsp" value="file://$PROJECT_DIR$/src/main/webapp/department" />
       </map>
     </option>
   </component>
