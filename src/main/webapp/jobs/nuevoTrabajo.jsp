@@ -15,7 +15,7 @@
                 </ol>
             </nav>
 
-            <form method="POST" action="<%=request.getContextPath()%>/JobServlet?action=crear" class="col-md-6 col-lg-6">
+            <form method="POST" action="<%=request.getContextPath()%>/LocationServlet?action=crear" class="col-md-6 col-lg-6">
                 <div class="mb-3">
                     <label for="jobId">Job ID</label>
                     <input type="text" class="form-control" id="jobId" name="jobId">
@@ -32,7 +32,7 @@
                     <label for="maxSalary">Max Salary</label>
                     <input type="text" class="form-control" id="maxSalary" name="maxSalary">
                 </div>
-                <a href="<%=request.getContextPath()%>/JobServlet" class="btn btn-danger">Regresar</a>
+                <a href="<%=request.getContextPath()%>/LocationServlet" class="btn btn-danger">Regresar</a>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

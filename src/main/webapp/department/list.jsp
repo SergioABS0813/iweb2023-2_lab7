@@ -19,8 +19,9 @@
             <li class="breadcrumb-item active">Departments</li>
         </ol>
     </nav>
+
     <a class="btn btn-primary mb-3" href="<%=request.getContextPath()%>/DepartmentServlet?action=formCrear">Crear
-        Department</a>
+        Departmento</a>
     <table class="table">
         <tr>
             <th>Dep ID</th>
