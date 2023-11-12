@@ -38,15 +38,15 @@
         <tr>
             <td><%=loc.getLocationId()%>
             </td>
-            <td><%=loc.getStreetAdd()%>
+            <td><%=loc.getStreetAdd() == null ? "Sin Street Address":loc.getStreetAdd()%>
             </td>
-            <td><%=loc.getPostalCode()%>
+            <td><%=loc.getPostalCode() == null ? "Postal Code":loc.getPostalCode()%>
             </td>
-            <td><%=loc.getCity()%>
+            <td><%=loc.getCity() == null ? "Sin City":loc.getCity()%>
             </td>
-            <td><%=loc.getStateProvince()%>
+            <td><%=loc.getStateProvince() == null ? "State Province":loc.getStateProvince()%>
             </td>
-            <td><%=loc.getCountry().getCountryName()%>
+            <td><%=loc.getCountry().getCountryName() == null ? "Sin Country":loc.getCountry().getCountryName()%>
             </td>
             <td>
                 <a class="btn btn-primary"
