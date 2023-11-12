@@ -90,20 +90,20 @@ public class LocationDao extends DaoBase{
         }
     }
 
-    public void borrar (String locationId) throws SQLException {
+    public void borrar (int locationId) throws SQLException {
 
         String sql = "delete from locations where location_id = ?";
 
         try(Connection conn = getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){
-            pstmt.setString(1, locationId);
+            pstmt.setInt(1, locationId);
             pstmt.executeUpdate();
         }
 
 
     }
 
-    public Location buscarPorId (int locationId){ //por mientrasssssssssssssssssssssssssssssss
+    public Location buscarPorId (int locationId){
 
         String sql = "select * from locations where location_id = ?";
 
@@ -125,12 +125,9 @@ public class LocationDao extends DaoBase{
 
                     country.setCountryId(rs.getString(6));
                     location.setCountry(country);
-
-
                 }
                 return location;
             }
-
 
         }catch (SQLException e) {
             throw new RuntimeException(e);

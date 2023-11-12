@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 @WebServlet(name = "LocationServlet", urlPatterns = {"/LocationServlet"})
@@ -46,14 +47,25 @@ public class LocationServlet extends HttpServlet {
                     request.getRequestDispatcher("location/editLocation.jsp").forward(request,response);
 
                 }else{
-                    response.sendRedirect( request.getContextPath() + "/JobServlet");
+                    response.sendRedirect( request.getContextPath() + "/LocationServlet");
                 }
                 break;
 
             case "borrar":
 
+                String idRecB = request.getParameter("id"); // recibimos el ID enviado desde el botón
+                Location LocationD = locationDao.buscarPorId(Integer.parseInt(idRecB));
 
-
+                if(LocationD != null){
+                    try{
+                        locationDao.borrar(Integer.parseInt(idRecB));
+                    }catch (SQLException e){
+                        System.out.println("Log: exception: " + e.getMessage());
+                    }
+                    response.sendRedirect( request.getContextPath() + "/LocationServlet"); //lo redirecciono a la página misma
+                }else{
+                    response.sendRedirect( request.getContextPath() + "/LocationServlet"); //lo redirecciono a la página misma
+                }
                 break;
 
         }
@@ -63,7 +75,6 @@ public class LocationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        super.doPost(request, response);
         response.setContentType("text/html");
 
         String action = request.getParameter("action") == null?"crear":request.getParameter("action");
@@ -81,7 +92,7 @@ public class LocationServlet extends HttpServlet {
 
                 // Creamos el LOCATION
                 locationDao.crearLocation(Integer.parseInt(locationId),streetAdd,postalCode,city,stateProvince,countryId); //Realizamos los cambios
-                response.sendRedirect(request.getContextPath() + "/LocationServlet");
+                response.sendRedirect(request.getContextPath() + "/LocationServlet"); // Sí hay cambios en la base de datos, solo que el redireccionamiento por alguna razón no funciona
                 break;
 
             case "editar":
@@ -95,11 +106,9 @@ public class LocationServlet extends HttpServlet {
 
                 locationDao.actualizar(Integer.parseInt(locationIdEd), streetAddEd, postalCodeEd, cityEd, stateProvinceEd, countryIdEd);
 
-                // Redireccionar:
-                response.sendRedirect(request.getContextPath() + "/JobServlet");
+                // Redireccionar: No funciona el redireccionamiento correctamente, pero si el funcionamiento de actualizar en base de datos y posteriormente refrescado el list sí hay cambios
+                response.sendRedirect(request.getContextPath() + "/LocationServlet");
 
-                break;
-            case "e":
                 break;
 
         }

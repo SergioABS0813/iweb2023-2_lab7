@@ -10,7 +10,6 @@ public class Location {
     private String stateProvince;
     private Country country; //Relacion Bean como atributo
 
-
     public int getLocationId() {
         return locationId;
     }
@@ -19,13 +18,13 @@ public class Location {
         this.locationId = locationId;
     }
 
-
     public String getLocationName() {
         return locationName;
     }
 
     public void setLocationName(String locationName) {
         this.locationName = locationName;
+    }
 
     public String getStreetAdd() {
         return streetAdd;
@@ -65,6 +64,5 @@ public class Location {
 
     public void setCountry(Country country) {
         this.country = country;
-
     }
 }
