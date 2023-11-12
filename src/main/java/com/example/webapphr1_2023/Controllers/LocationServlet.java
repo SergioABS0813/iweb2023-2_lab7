@@ -1,5 +1,6 @@
 package com.example.webapphr1_2023.Controllers;
 
+import com.example.webapphr1_2023.Beans.Country;
 import com.example.webapphr1_2023.Beans.Location;
 import com.example.webapphr1_2023.Daos.LocationDao;
 import jakarta.servlet.RequestDispatcher;
@@ -42,9 +43,7 @@ public class LocationServlet extends HttpServlet {
 
                 if (location != null){
                     request.setAttribute("location", location); // enviamos el job a la vista
-                    request.getRequestDispatcher("job/editarLocation.jsp").forward(request,response);
-                    //MEJORARRRRRRRRRRRRRRR LOCATION DEBE MANDARSEEE
-
+                    request.getRequestDispatcher("location/editLocation.jsp").forward(request,response);
 
                 }else{
                     response.sendRedirect( request.getContextPath() + "/JobServlet");
@@ -52,6 +51,7 @@ public class LocationServlet extends HttpServlet {
                 break;
 
             case "borrar":
+
 
 
                 break;
@@ -84,7 +84,19 @@ public class LocationServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/LocationServlet");
                 break;
 
-            case "a":
+            case "editar":
+
+                String locationIdEd = request.getParameter("locationId");
+                String streetAddEd = request.getParameter("streetAdd");
+                String postalCodeEd = request.getParameter("postalCode");
+                String cityEd = request.getParameter("city");
+                String stateProvinceEd = request.getParameter("stateProvince");
+                String countryIdEd = request.getParameter("countryId");
+
+                locationDao.actualizar(Integer.parseInt(locationIdEd), streetAddEd, postalCodeEd, cityEd, stateProvinceEd, countryIdEd);
+
+                // Redireccionar:
+                response.sendRedirect(request.getContextPath() + "/JobServlet");
 
                 break;
             case "e":

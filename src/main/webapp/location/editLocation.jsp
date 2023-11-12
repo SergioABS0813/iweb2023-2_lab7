@@ -20,23 +20,23 @@
                     <input type="hidden" class="form-control" name = "locationId" value = "<%=location.getLocationId()%>">
                 </div>
                 <div class="mb-3">
-                    <label for="streetAdd">Job Title</label>
+                    <label for="streetAdd">Street Address</label>
                     <input type="text" class="form-control" name = "streetAdd"  value = "<%=location.getStreetAdd()%>">
                 </div>
                 <div class="mb-3">
-                    <label for="postalCode">Min Salary</label>
+                    <label for="postalCode">Postal Code </label>
                     <input type="text" class="form-control" name = "postalCode"  value = "<%=location.getPostalCode()%>">
                 </div>
                 <div class="mb-3">
-                    <label for="city">Max Salary</label>
+                    <label for="city">City</label>
                     <input type="text" class="form-control" name = "city" value = "<%=location.getCity()%>">
                 </div>
                 <div class="mb-3">
-                    <label for="stateProvince">Max Salary</label>
+                    <label for="stateProvince">State Province</label>
                     <input type="text" class="form-control" name = "stateProvince" value = "<%=location.getStateProvince()%>">
                 </div>
                 <div class="mb-3">
-                    <label for="countryId">Max Salary</label>
+                    <label for="countryId">Country ID</label>
                     <input type="text" class="form-control" name = "countryId" value = "<%=location.getCountry().getCountryId()%>">
                 </div>
 
