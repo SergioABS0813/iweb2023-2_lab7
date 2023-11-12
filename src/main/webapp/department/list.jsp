@@ -19,8 +19,9 @@ D<%@ page import="com.example.webapphr1_2023.Beans.Department" %>
             <li class="breadcrumb-item active">Departments</li>
         </ol>
     </nav>
-    <a class="btn btn-primary mb-3" href="<%=request.getContextPath()%>/LocationServlet?action=formCrear">Crear
-        Department</a>
+
+    <a class="btn btn-primary mb-3" href="<%=request.getContextPath()%>/DepartmentServlet?action=formCrear">Crear
+        Departmento</a>
     <table class="table">
         <tr>
             <th>Dep ID</th>
@@ -38,9 +39,9 @@ D<%@ page import="com.example.webapphr1_2023.Beans.Department" %>
             </td>
             <td><%=dep.getDepartmentName()%>
             </td>
-            <td><%=dep.getManagerId()%>
+            <td><%= dep.getManager() == null ? "-- Sin jefe --" : dep.getManager().getFullName() %>
             </td>
-            <td><%=dep.getLocationId()%>
+            <td><%=dep.getLocation().getLocationId() == 0 ? "-- Sin locación -- ": dep.getLocation().getLocationName()%>
             </td>
             <td>
                 <a class="btn btn-primary"

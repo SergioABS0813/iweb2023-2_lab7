@@ -2,11 +2,14 @@ package com.example.webapphr1_2023.Beans;
 
 public class Location {
     private int locationId;
+
+    private String locationName;
     private String streetAdd;
     private String postalCode;
     private String city;
     private String stateProvince;
     private Country country; //Relacion Bean como atributo
+
 
     public int getLocationId() {
         return locationId;
@@ -16,6 +19,13 @@ public class Location {
         this.locationId = locationId;
     }
 
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
 
     public String getStreetAdd() {
         return streetAdd;
@@ -55,5 +65,6 @@ public class Location {
 
     public void setCountry(Country country) {
         this.country = country;
+
     }
 }
