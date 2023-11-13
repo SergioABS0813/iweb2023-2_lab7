@@ -1,4 +1,4 @@
-D<%@ page import="com.example.webapphr1_2023.Beans.Department" %>
+<%@ page import="com.example.webapphr1_2023.Beans.Department" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <jsp:useBean type="java.util.ArrayList<com.example.webapphr1_2023.Beans.Department>" scope="request" id="departmentList"/>
