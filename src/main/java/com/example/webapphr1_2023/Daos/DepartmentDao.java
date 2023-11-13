@@ -101,7 +101,7 @@ public class DepartmentDao extends DaoBase {
     public void borrarDep(int departmentId) {
 
         try (Connection conn = getConnection();
-             PreparedStatement pstmt = conn.prepareStatement("DELETE FROM employees WHERE employee_id = ?")) {
+             PreparedStatement pstmt = conn.prepareStatement("DELETE FROM departments WHERE department_id = ?")) {
             pstmt.setInt(1, departmentId);
             pstmt.executeUpdate();
 
