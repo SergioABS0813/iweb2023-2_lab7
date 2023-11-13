@@ -21,7 +21,7 @@
     </nav>
 
     <a class="btn btn-primary mb-3" href="<%=request.getContextPath()%>/DepartmentServlet?action=formCrear">Crear
-        Departmento</a>
+        Departamento</a>
     <table class="table">
         <tr>
             <th>Dep ID</th>
