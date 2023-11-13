@@ -134,7 +134,7 @@ public class DepartmentServlet extends HttpServlet {
 
                 departmentDao.actualizarDep(department);
 
-                resp.sendRedirect("DeparmentServlet");
+                resp.sendRedirect("DepartmentServlet");
 
                 break;
         }
