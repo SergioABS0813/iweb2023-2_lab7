@@ -110,27 +110,50 @@ public class DepartmentServlet extends HttpServlet {
         DepartmentDao departmentDao = new DepartmentDao();
 
         Department department = new Department();
-        department.setDepartmentName(req.getParameter("department_id"));
-        department.setDepartmentName(req.getParameter("department_name"));
-
-
-
-        Employee manager = new Employee();
-        manager.setEmployeeId(Integer.parseInt(req.getParameter("manager_id")));
-        department.setManager(manager);
-
-        Location location = new Location();
-        location.setLocationId(Integer.parseInt(req.getParameter("location_id")));
-        department.setLocation(location);
 
         switch (action) {
             case "guardar":
+                String department_id = req.getParameter("department_id");
+                String department_name = req.getParameter("department_name");
+                String manager_id = req.getParameter("manager_id");
+                String location_id = req.getParameter("location_id");
+
+                department.setDepartmentId(Integer.parseInt(department_id));
+                department.setDepartmentName(department_name);
+
+                Employee manager = new Employee();
+                manager.setEmployeeId(Integer.parseInt(manager_id));
+
+                department.setManager(manager);
+
+                Location location1 = new Location();
+                location1.setLocationId(Integer.parseInt(location_id));
+
+                department.setLocation(location1);
+
+
                 departmentDao.guardarDep(department);
                 resp.sendRedirect("DepartmentServlet");
                 break;
 
             case "actualizar":
-                department.setDepartmentId(Integer.parseInt(req.getParameter("department_id")));
+                String department_idAc = req.getParameter("department_id");
+                String department_nameAc = req.getParameter("department_name");
+                String manager_idAc = req.getParameter("manager_id");
+                String location_idAc = req.getParameter("location_id");
+
+                department.setDepartmentId(Integer.parseInt(department_idAc));
+                department.setDepartmentName(department_nameAc);
+
+                Employee manager1 = new Employee();
+                manager1.setEmployeeId(Integer.parseInt(manager_idAc));
+
+                department.setManager(manager1);
+
+                Location location = new Location();
+                location.setLocationId(Integer.parseInt(location_idAc));
+
+                department.setLocation(location);
 
                 departmentDao.actualizarDep(department);
 

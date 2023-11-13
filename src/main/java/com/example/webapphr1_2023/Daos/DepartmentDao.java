@@ -69,7 +69,10 @@ public class DepartmentDao extends DaoBase {
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            setDepartmentData(department, pstmt);
+            pstmt.setInt(1,department.getDepartmentId());
+            pstmt.setString(2,department.getDepartmentName());
+            pstmt.setInt(3, department.getManager().getEmployeeId());
+            pstmt.setInt(4, department.getLocation().getLocationId());
 
             pstmt.executeUpdate();
 
@@ -89,11 +92,11 @@ public class DepartmentDao extends DaoBase {
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            setDepartmentData(department, pstmt);
+            pstmt.setString(1,department.getDepartmentName());
+            pstmt.setInt(2,department.getManager().getEmployeeId());
+            pstmt.setInt(3,department.getLocation().getLocationId());
             pstmt.setInt(4, department.getDepartmentId());
-
             pstmt.executeUpdate();
-
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -131,21 +134,5 @@ public class DepartmentDao extends DaoBase {
         department.setLocation(location);
 
         return department;
-    }
-
-    private void setDepartmentData(Department department, PreparedStatement pstmt) throws SQLException {
-        pstmt.setString(1, department.getDepartmentName());
-
-        if (department.getManager().getEmployeeId() == 0) {
-            pstmt.setNull(2, Types.INTEGER);
-        } else {
-            pstmt.setInt(2, department.getManager().getEmployeeId());
-        }
-
-        if (department.getLocation().getLocationId() == 0) {
-            pstmt.setNull(3, Types.INTEGER);
-        } else {
-            pstmt.setInt(3, department.getLocation().getLocationId());
-        }
     }
 }
