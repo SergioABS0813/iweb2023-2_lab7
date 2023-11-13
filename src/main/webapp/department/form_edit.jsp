@@ -17,11 +17,11 @@
     <div class="row justify-content-center">
         <h1 class='mb-3'>Editar departamento</h1>
         <hr>
-        <form method="POST" action="DepartmentServlet?action=actualizar" class="col-md-6 col-lg-6">
+        <form method="POST" action="<%=request.getContextPath()%>/DepartmentServlet?action=actualizar" class="col-md-6 col-lg-6">
             <input type="hidden" name="department_id" value="<%= departamento.getDepartmentId()%>"/>
             <div class="mb-3">
-                <label for="first_name">Dep Name</label>
-                <input type="text" class="form-control form-control-sm" name="first_name"
+                <label for="department_name">Dep Name</label>
+                <input type="text" class="form-control form-control-sm" name="department_name"
                        value="<%= departamento.getDepartmentName() == null ? "" : departamento.getDepartmentName()%>">
             </div>
 
@@ -44,7 +44,8 @@
                 </select>
             </div>
             <a href="<%= request.getContextPath()%>/DepartmentServlet" class="btn btn-danger">Cancelar</a>
-            <input type="submit" value="Actualizar" class="btn btn-primary"/>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+
         </form>
     </div>
 </div>

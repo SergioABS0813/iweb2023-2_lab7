@@ -32,6 +32,8 @@ public class DepartmentServlet extends HttpServlet {
 
         // recibimos el parámetro action
         String action = req.getParameter("action") == null ? "departmentList" : req.getParameter("action");
+
+
         switch (action){
             case "departmentList":
                 req.setAttribute("departmentList", departmentDao.lista());
@@ -108,7 +110,9 @@ public class DepartmentServlet extends HttpServlet {
         DepartmentDao departmentDao = new DepartmentDao();
 
         Department department = new Department();
+        department.setDepartmentName(req.getParameter("department_id"));
         department.setDepartmentName(req.getParameter("department_name"));
+
 
 
         Employee manager = new Employee();

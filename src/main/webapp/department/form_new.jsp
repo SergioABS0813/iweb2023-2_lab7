@@ -19,8 +19,12 @@
             <h1 class='mb-3'>Nuevo departamento</h1>
             <hr>
             <div class="mb-3">
+                <label for="department_id">Department ID</label>
+                <input type="text" class="form-control form-control-sm" name = "department_id">
+            </div>
+            <div class="mb-3">
                 <label for="department_name">Dep Name</label>
-                <input type="text" class="form-control form-control-sm" name="depName" >
+                <input type="text" class="form-control form-control-sm" name="department_name" >
             </div>
 
             <div class="mb-3">

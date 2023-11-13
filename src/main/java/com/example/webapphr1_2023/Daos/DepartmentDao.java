@@ -63,8 +63,8 @@ public class DepartmentDao extends DaoBase {
     }
     public void guardarDep(Department department){
 
-        String sql = "INSERT INTO departments (department_name, manager_id,location_id)"
-                + "VALUES (?, ?, ?)";
+        String sql = "INSERT INTO departments (department_id, department_name, manager_id,location_id)"
+                + "VALUES (?, ?, ?, ?)";
 
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
