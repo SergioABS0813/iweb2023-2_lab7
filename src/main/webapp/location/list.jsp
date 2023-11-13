@@ -55,7 +55,7 @@
                 </a>
             </td>
             <td>
-                <a class="btn btn-danger"
+                <a onclick="return confirm('¿Está seguro de borrar?')" class="btn btn-danger"
                    href="<%=request.getContextPath()%>/LocationServlet?action=borrar&id=<%=loc.getLocationId()%>">
                     <i class="bi bi-trash3"></i>
                 </a>
